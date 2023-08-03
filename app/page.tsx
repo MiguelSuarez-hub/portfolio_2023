@@ -54,7 +54,7 @@ export default function Home() {
           </div>
         </aside>
         <article className="prose max-w-none prose-lg py-8 dark:prose-invert lg:col-span-2">
-          <p className="text-left text-md">Hi! My name is Miguel Suarez, I'm a FrontEnd Developer located in Bogota/Colombia, I am a selfmade Developer who is always learning and serching new tools to be a better developer, since 2020 I started learning web development and fell in love with programing.</p>
+          <p className="text-left text-md">Hi! My name is Miguel Suarez, I am a FrontEnd Developer located in Bogota/Colombia, I am a selfmade Developer who is always learning and serching new tools to be a better developer, since 2020 I started learning web development and fell in love with programing.</p>
           <p className="text-left text-md"><span className="text-cyan-600 font-bold">React</span> is a powerfull language and i love to use it in my projects, also <span className="text-cyan-600 font-bold">NextJs</span> provides us with a lot of tools to improve our development, I enjoy developing useful web applications, and expend time reading and writing code.</p>
         </article>
       </div>
