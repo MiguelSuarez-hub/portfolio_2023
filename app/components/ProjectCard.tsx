@@ -21,7 +21,7 @@ const ProjectCard = ({
   imageUrl: string;
 }) => {
   return (
-    <article className="overflow-hidden dark:border-zinc-600 rounded-lg border border-slate-100 bg-white shadow-lg dark:bg-black dark:shadow-gray-700 shadow-teal-300 relative">
+    <article className="overflow-hidden dark:border-zinc-600 rounded-lg border border-slate-100 bg-white shadow-lg dark:bg-gray-500 dark:shadow-gray-700 shadow-teal-300 relative">
       <div className=" h-44 w-full relative ">
         <Image
           src={imageUrl}
