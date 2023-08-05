@@ -54,7 +54,7 @@ export default async function Home() {
             I am excited about the endless possibilities that technology brings,
             and I am thrilled to be part of the frontend development community.
             If you have any projects or opportunities where my skills can make a
-            difference, please don't hesitate to reach out. I look forward to
+            difference, please don&apos;t hesitate to reach out. I look forward to
             creating exceptional web experiences together!
           </p>
         </aside>
