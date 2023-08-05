@@ -72,6 +72,7 @@ export default function Home() {
               onChange={(e) => {setForm({...form, [e.target.name]: e.target.value });}}
               placeholder='Write your name here'
               className='bg-gray-200 dark:bg-slate-900 py-4 px-6 rounded-lg outlined-none border-none font-medium'
+              required
             />
           </label>
           <label className='flex flex-col'>
@@ -83,6 +84,7 @@ export default function Home() {
               onChange={(e) => {setForm({...form, [e.target.name]: e.target.value });}}
               placeholder="What's your email?"
               className='bg-gray-200 dark:bg-slate-900 py-4 px-6 rounded-lg outlined-none border-none font-medium'
+              required
             />
           </label>
           <label className='flex flex-col'>
@@ -94,6 +96,7 @@ export default function Home() {
               onChange={(e) => {setForm({...form, [e.target.name]: e.target.value });}}
               placeholder='Write your message here'
               className='bg-gray-200 dark:bg-slate-900 py-4 px-6 rounded-lg outlined-none border-none font-medium'
+              required
             />
           </label>
           <button
