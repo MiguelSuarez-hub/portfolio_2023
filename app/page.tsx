@@ -24,7 +24,10 @@ export default function Home() {
           </h3>
           <p className="text-center text-md">FrontEnd Developer</p>
           <div className="flex space-x-5 pt-6">
-            <a href="https://www.linkedin.com/in/miguel-suarez-1805/" target="_blank">
+            <a
+              href="https://www.linkedin.com/in/miguel-suarez-1805/"
+              target="_blank"
+            >
               <svg
                 viewBox="0 0 1024 1024"
                 fill="currentColor"
@@ -54,8 +57,41 @@ export default function Home() {
           </div>
         </aside>
         <article className="prose max-w-none prose-lg py-8 dark:prose-invert lg:col-span-2">
-          <p className="text-left text-md">Hi! My name is Miguel Suarez, I am a FrontEnd Developer located in Bogota/Colombia, I am a selfmade Developer who is always learning and serching new tools to be a better developer, since 2020 I started learning web development and fell in love with programing.</p>
-          <p className="text-left text-md"><span className="text-cyan-600 font-bold">React</span> is a powerfull language and i love to use it in my projects, also <span className="text-cyan-600 font-bold">NextJs</span> provides us with a lot of tools to improve our development, I enjoy developing useful web applications, and expend time reading and writing code.</p>
+          <p className="text-left text-md">
+            Hi! My name is Miguel Suarez, I am a FrontEnd Developer located in
+            Bogota/Colombia, I am a selfmade Developer who is always learning
+            and serching new tools to be a better developer, since 2020 I
+            started learning web development and fell in love with programing.
+          </p>
+          <p className="text-left text-md">
+            <span className="text-cyan-600 font-bold">React</span> is a
+            powerfull language and i love to use it in my projects, also{" "}
+            <span className="text-cyan-600 font-bold">NextJs</span> provides us
+            with a lot of tools to improve our development, I enjoy developing
+            useful web applications, and expend time reading and writing code.
+          </p>
+          <div className="flex-col items-center justify-center">
+            <p className="text-center text-2xl m-0">Developed with: </p>
+            <div className="flex items-center justify-center gap-4">
+              <div className=" h-16 w-28 m-0 relative ">
+                <Image
+                  src="/next.svg"
+                  alt="next logo"
+                  fill
+                  className=" w-full h-full my-0 object-contain"
+                />
+              </div>
+              <p className="text-center text-4xl m-0">+</p>
+              <div className=" h-16 w-16 m-0 relative ">
+                <Image
+                  src="/tailwind.png"
+                  alt="tailwind logo"
+                  fill
+                  className=" w-full h-full my-0 object-contain"
+                />
+              </div>
+            </div>
+          </div>
         </article>
       </div>
     </div>
