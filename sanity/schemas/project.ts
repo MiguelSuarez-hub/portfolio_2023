@@ -9,9 +9,14 @@ export default {
       title: 'Title',
     },
     {
-      name: 'description',
+      name: 'description_en',
       type: 'string',
-      title: 'Description',
+      title: 'Description English',
+    },
+    {
+      name: 'description_es',
+      type: 'string',
+      title: 'Description Spanish',
     },
     {
       name: 'tag_1',

@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import Navbar from "./components/Navbar";
 import { Provider } from "./components/Provider";
+import { LanguageProvider } from "./context/LanguageContext";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,12 +19,16 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.className} h-full bg-gray-200 text-dark  dark:bg-gray-900 dark:text-white  selection:bg-gray-300 dark:selection:bg-gray-500 `}>
+      <body
+        className={`${inter.className} h-full bg-gray-200 text-dark  dark:bg-gray-900 dark:text-white  selection:bg-gray-300 dark:selection:bg-gray-500 `}
+      >
         <Provider>
+          <LanguageProvider>
           <Navbar />
-          <main className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            {children}
-          </main>
+            <main className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+              {children}
+            </main>
+          </LanguageProvider>
         </Provider>
       </body>
     </html>

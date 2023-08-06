@@ -10,6 +10,7 @@ const TechCard = ({ title, imageUrl }: { title: string; imageUrl: string }) => {
             src={imageUrl}
             alt={title}
             fill
+            sizes="w-full h-full"
             className=" w-full h-full my-0 object-contain"
           />
         </div>

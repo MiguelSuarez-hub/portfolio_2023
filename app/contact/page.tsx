@@ -2,15 +2,28 @@
 
 import { useState, FormEventHandler } from 'react';
 import emailjs from '@emailjs/browser';
+import Header from '../components/Header';
+import { useLanguage } from '../context/LanguageContext';
 
 export default function Home() {
+  const {language} = useLanguage();
+  let message1: string;
+  let message2: string;
   const [form, setForm] = useState({
     name: '', 
     email: '',
     message: '',
   });
   const [loading, setLoading] = useState(false);
-
+  
+  if(language === "EN") {
+    message1 = "Thank you, I will answer you as soon as possible."
+    message2 = "Something went wrong"
+  } else {
+    message1 = "Gracias, estare en contacto lo más pronto posible."
+    message2 = "Algo salio mal" 
+  }
+  
   const handleSubmit: FormEventHandler<HTMLFormElement> = (e) => {
     e.preventDefault();
     setLoading(true);
@@ -29,7 +42,7 @@ export default function Home() {
     )
     .then(() => {
       setLoading(false);
-      alert('Thank you, I will answer you as soon as possible.');
+      alert(message1);
       setForm({
         name: '',
         email: '',
@@ -38,18 +51,14 @@ export default function Home() {
     }, (error) => {
       setLoading(false);
       console.log(error);
-      alert('Something went wrong')
+      alert(message2)
     }
     )
   }
 
   return (
     <div className="divide-y divide-gray-100 dark:divide-gray-700">
-      <div className="space-y-2 pt-5 pb-8 md:space-x-5">
-        <h1 className="text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-5xl ">
-          Get in touch!
-        </h1>
-      </div>
+      <Header>{language === "EN" ? "Get in touch" : "Ponte en contacto"}</Header>
 
       <div className="items-center space-y-2 lg:grid lg:grid-cols-2 lg:gap-x-8">
         <div className="flex items-center justify-center"><svg
@@ -64,37 +73,37 @@ export default function Home() {
           className=' mt-12 flex flex-col gap-2 border-1 border-gray-500 bg-slate-400 dark:border-gray-800 rounded-lg dark:bg-slate-700 p-5'
         >
           <label className='flex flex-col'>
-            <span className= 'font-medium mb-4'>Your name</span>
+            <span className= 'font-medium mb-4'>{language === "EN" ? "Your name" : "Tu nombre"}</span>
             <input 
               type='text'
               name='name'
               value={form.name}
               onChange={(e) => {setForm({...form, [e.target.name]: e.target.value });}}
-              placeholder='Write your name here'
+              placeholder={language === "EN" ? "Write your name here" : "Escribe tu nombre aquí"}
               className='bg-gray-200 dark:bg-slate-900 py-4 px-6 rounded-lg outlined-none border-none font-medium'
               required
             />
           </label>
           <label className='flex flex-col'>
-            <span className='font-medium mb-4'>Your email</span>
+            <span className='font-medium mb-4'>{language === "EN" ? "Your email" : "Tu correo"}</span>
             <input 
               type='email'
               name='email'
               value={form.email}
               onChange={(e) => {setForm({...form, [e.target.name]: e.target.value });}}
-              placeholder="What's your email?"
+              placeholder={language === "EN" ? "Write your email here" : "Escribe tu correo aquí"}
               className='bg-gray-200 dark:bg-slate-900 py-4 px-6 rounded-lg outlined-none border-none font-medium'
               required
             />
           </label>
           <label className='flex flex-col'>
-            <span className=' font-medium mb-4'>Your message</span>
+            <span className=' font-medium mb-4'>{language === "EN" ? "Your message" : "Tu mensaje"}</span>
             <textarea 
               rows={3}
               name='message'
               value={form.message}
               onChange={(e) => {setForm({...form, [e.target.name]: e.target.value });}}
-              placeholder='Write your message here'
+              placeholder={language === "EN" ? 'Write your message here' : "Escribe tu mensaje aquí"}
               className='bg-gray-200 dark:bg-slate-900 py-4 px-6 rounded-lg outlined-none border-none font-medium'
               required
             />
@@ -103,7 +112,7 @@ export default function Home() {
             type='submit'
             className='bg-gray-200 dark:bg-slate-900 py-3 px-8 outline-none w-fit font-bold shadow-md dark:shadow-gray-600 rounded-xl hover:scale-110'
           >
-            {loading ? 'Sending...' : 'Send'}
+            {language === "EN" ? loading ? 'Sending...' : 'Send' : loading ? 'Enviando...' : 'Enviar'}
           </button>
         </form>
       </div>

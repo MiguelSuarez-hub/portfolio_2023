@@ -1,14 +1,15 @@
+'use client'
+
 import Image from "next/image";
 import profile from "@/public/perfil.png";
+import Header from "./components/Header";
+import { useLanguage } from "./context/LanguageContext";
 
 export default function Home() {
+  const { language } = useLanguage();
   return (
     <div className="divide-y divide-gray-100 dark:divide-gray-700">
-      <div className="space-y-2 pt-5 pb-8 md:space-x-5">
-        <h1 className="text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-5xl ">
-          Welcome!
-        </h1>
-      </div>
+      <Header>{language === "ES" ? "Bienvenidos" : "Welcome"}</Header>
 
       <div className="items-center space-y-2 lg:grid lg:grid-cols-3 lg:gap-x-8 lg:space-y-0">
         <aside className="flex flex-col items-center pt-8">
@@ -22,7 +23,7 @@ export default function Home() {
           <h3 className="py-3 text-2xl font-bold tracking-tight">
             Miguel Angel Suarez
           </h3>
-          <p className="text-center text-md">FrontEnd Developer</p>
+          <p className="text-center text-md">{language === "ES" ? "Desarrollador FrontEnd" : "FrontEnd Developer"}</p>
           <div className="flex space-x-5 pt-6">
             <a
               href="https://www.linkedin.com/in/miguel-suarez-1805/"
@@ -45,7 +46,7 @@ export default function Home() {
                 <path d="M511.6 76.3C264.3 76.2 64 276.4 64 523.5 64 718.9 189.3 885 363.8 946c23.5 5.9 19.9-10.8 19.9-22.2v-77.5c-135.7 15.9-141.2-73.9-150.3-88.9C215 726 171.5 718 184.5 703c30.9-15.9 62.4 4 98.9 57.9 26.4 39.1 77.9 32.5 104 26 5.7-23.5 17.9-44.5 34.7-60.8-140.6-25.2-199.2-111-199.2-213 0-49.5 16.3-95 48.3-131.7-20.4-60.5 1.9-112.3 4.9-120 58.1-5.2 118.5 41.6 123.2 45.3 33-8.9 70.7-13.6 112.9-13.6 42.4 0 80.2 4.9 113.5 13.9 11.3-8.6 67.3-48.8 121.3-43.9 2.9 7.7 24.7 58.3 5.5 118 32.4 36.8 48.9 82.7 48.9 132.3 0 102.2-59 188.1-200 212.9a127.5 127.5 0 0138.1 91v112.5c.8 9 0 17.9 15 17.9 177.1-59.7 304.6-227 304.6-424.1 0-247.2-200.4-447.3-447.5-447.3z" />
               </svg>
             </a>
-            <a href="">
+            {/* <a href="">
               <svg
                 viewBox="0 0 900 1000"
                 fill="currentColor"
@@ -53,25 +54,27 @@ export default function Home() {
               >
                 <path d="M30 264C8.667 252-.667 238.667 2 224c1.333-9.333 10-14 26-14h846c25.333 0 32 10.667 20 32-5.333 9.333-13.333 16.667-24 22-9.333 4-73.333 38-192 102s-179.333 96.667-182 98c-10.667 6.667-26 10-46 10-18.667 0-34-3.333-46-10-2.667-1.333-63.333-34-182-98S39.333 268 30 264m850 100c13.333-6.667 20-3.333 20 10v368c0 10.667-5.667 21.333-17 32-11.333 10.667-22.333 16-33 16H50c-10.667 0-21.667-5.333-33-16-11.333-10.667-17-21.333-17-32V374c0-13.333 6.667-16.667 20-10l384 200c12 6.667 27.333 10 46 10s34-3.333 46-10l384-200" />
               </svg>
-            </a>
+            </a> */}
           </div>
         </aside>
         <article className="prose max-w-none prose-lg py-8 dark:prose-invert lg:col-span-2">
           <p className="text-left text-md">
-            Hi! My name is Miguel Suarez, I am a FrontEnd Developer located in
-            Bogota/Colombia, I am a selfmade Developer who is always learning
-            and serching new tools to be a better developer, since 2020 I
-            started learning web development and fell in love with programing.
+          {language === "ES" ? "Hola! Mi nombre es Miguel Suárez, soy un FrontEnd Developer ubicado en Bogotá/Colombia, soy una persona autodidacta, que siempre está buscando nuevos conocimientos y herramientas para superarme día a día, desde el 2020 empecé a aprender desarrollo web y me enamoré de la programación." : "Hi! My name is Miguel Suarez, I am a FrontEnd Developer located in Bogota/Colombia, I am a selfmade Developer who is always learning and serching new tools to be a better developer, since 2020 I started learning web development and fell in love with programing."}
+            
           </p>
-          <p className="text-left text-md">
+          {language === "ES" ? <p className="text-left text-md">
+            <span className="text-cyan-600 font-bold">React</span> es un lenguaje potente y me encanta usarlo en mis proyectos, también{" "}
+            <span className="text-cyan-600 font-bold">NextJs</span> nos proporciona un montón de herramientas para mejorar nuestro desarrollo, me gusta desarrollar aplicaciones web útiles, y pasar tiempo leyendo y escribiendo código.
+          </p> : <p className="text-left text-md">
             <span className="text-cyan-600 font-bold">React</span> is a
             powerfull language and i love to use it in my projects, also{" "}
             <span className="text-cyan-600 font-bold">NextJs</span> provides us
             with a lot of tools to improve our development, I enjoy developing
             useful web applications, and expend time reading and writing code.
-          </p>
+          </p>}
+          
           <div className="flex-col items-center justify-center">
-            <p className="text-center text-2xl m-0">Developed with: </p>
+            <p className="text-center text-2xl m-0">{language === "ES" ? "Desarrollado con: " : "Developed with: "}</p>
             <div className="flex items-center justify-center gap-4">
               <div className=" h-16 w-28 m-0 relative ">
                 <Image

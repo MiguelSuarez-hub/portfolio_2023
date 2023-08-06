@@ -5,9 +5,13 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import ThemeButton from "./ThemeButton";
+import LanguageButton from "./LanguageButton";
+import { useLanguage } from "../context/LanguageContext";
 
 const Navbar = () => {
   const pathname = usePathname();
+  const {language} = useLanguage();
+
   return (
     <Disclosure as="nav">
       {({ open }) => (
@@ -29,7 +33,7 @@ const Navbar = () => {
                 <h2 className="hidden md:block ">
                   {" "}
                   MAS Dev |{" "}
-                  <span className="text-cyan-400">Web Development</span>
+                  <span className="text-cyan-400">{language === "ES" ? "Desarrollo Web" : "Web Development"}</span>
                 </h2>
               </Link>
               <ul className="hidden md:flex md:gap-4 md:items-center">
@@ -41,7 +45,7 @@ const Navbar = () => {
                   }`}
                 >
                   <Link href="/" prefetch>
-                    Home
+                    {language === "ES" ? "Inicio" : "Home"}
                   </Link>
                 </li>
                 <li
@@ -51,7 +55,7 @@ const Navbar = () => {
                       : "text-gray-600 hover:text-black hover:scale-110 dark:text-gray-500 dark:hover:text-white"
                   }`}
                 >
-                  <Link href="/about">About</Link>
+                  <Link href="/about">{language === "ES" ? "Sobre mi" : "About"}</Link>
                 </li>
                 <li
                   className={`${
@@ -60,7 +64,7 @@ const Navbar = () => {
                       : "text-gray-600 hover:text-black hover:scale-110 dark:text-gray-500 dark:hover:text-white"
                   }`}
                 >
-                  <Link href="/projects">Projects</Link>
+                  <Link href="/projects">{language === "ES" ? "Proyectos" : "Projects"}</Link>
                 </li>
                 <li
                   className={`${
@@ -69,15 +73,19 @@ const Navbar = () => {
                       : "text-gray-600 hover:text-black hover:scale-110 dark:text-gray-500 dark:hover:text-white"
                   }`}
                 >
-                  <Link href="/contact">Contact</Link>
+                  <Link href="/contact">{language === "ES" ? "Contacto" : "Contact"}</Link>
                 </li>
                 <li>
                   <ThemeButton />
                 </li>
+                <li>
+                  <LanguageButton />
+                </li>
               </ul>
-              <div className="-mr-2 flex items-center md:hidden">
+              <div className="-mr-2 flex justify-between items-center gap-2 md:hidden">
                 <ThemeButton />
-                <Disclosure.Button className="inline-flex items-center justify-center p-2 rounded-md hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-cyan-400 dark:hover:bg-gray-400 ml-2">
+                <LanguageButton />
+                <Disclosure.Button className="inline-flex items-center justify-center p-2 rounded-md hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-cyan-400 dark:hover:bg-gray-400">
                   {open ? (
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -124,7 +132,7 @@ const Navbar = () => {
                     : "border-transparent hover:bg-gray-50 hover:border-gray-500 block px-4 py-2 border-l-4 hover:dark:bg-gray-700 dark:text-white text-base font-medium"
                 }`}
               >
-                Home
+                {language === "ES" ? "Inicio" : "Home"}
               </Link>
               <Link
                 href="/about"
@@ -135,7 +143,7 @@ const Navbar = () => {
                     : "border-transparent hover:bg-gray-50 hover:border-gray-500 block px-4 py-2 border-l-4 hover:dark:bg-gray-700 dark:text-white text-base font-medium"
                 }`}
               >
-                About
+                {language === "ES" ? "Sobre mi" : "About"}
               </Link>
               <Link
                 href="/projects"
@@ -146,7 +154,7 @@ const Navbar = () => {
                     : "border-transparent hover:bg-gray-50 hover:border-gray-500 block px-4 py-2 border-l-4 hover:dark:bg-gray-700 dark:text-white text-base font-medium"
                 }`}
               >
-                Projects
+                {language === "ES" ? "Proyectos" : "Projects"}
               </Link>
               <Link
                 href="/contact"
@@ -157,7 +165,7 @@ const Navbar = () => {
                     : "border-transparent hover:bg-gray-50 hover:border-gray-500 block px-4 py-2 border-l-4 hover:dark:bg-gray-700 dark:text-white text-base font-medium"
                 }`}
               >
-                Contact
+                {language === "ES" ? "Contacto" : "Contact"}
               </Link>
             </div>
           </Disclosure.Panel>

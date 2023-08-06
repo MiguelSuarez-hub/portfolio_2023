@@ -1,8 +1,12 @@
+'use client'
+
 import Image from "next/image";
+import { useLanguage } from "../context/LanguageContext";
 
 const ProjectCard = ({
   title,
-  description,
+  description_es,
+  description_en,
   tag_1,
   tag_2,
   tag_3,
@@ -11,7 +15,8 @@ const ProjectCard = ({
   imageUrl,
 }: {
   title: string;
-  description: string;
+  description_es: string;
+  description_en: string;
   tag_1: string;
   tag_2: string;
   tag_3: string;
@@ -20,6 +25,7 @@ const ProjectCard = ({
   _id: string;
   imageUrl: string;
 }) => {
+  const {language} = useLanguage();
   return (
     <article className="overflow-hidden dark:border-zinc-600 rounded-lg border border-slate-100 bg-white shadow-lg dark:bg-gray-500 dark:shadow-gray-700 shadow-teal-300 relative">
       <div className=" h-44 w-full relative ">
@@ -35,7 +41,7 @@ const ProjectCard = ({
           {title}
         </h3>
         <p className="text-md font-normal text-gray-800 dark:text-gray-200">
-          {description}
+          {language === "EN" ? description_en : description_es}
         </p>
       </div>
       <div className="p-2 sm:p-4 flex justify-between items-center">
