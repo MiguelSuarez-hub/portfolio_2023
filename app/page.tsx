@@ -21,7 +21,7 @@ export default function Home() {
             className=" rounded-full"
           />
           <h3 className="py-3 text-2xl font-bold tracking-tight">
-            Miguel Angel Suarez
+            Miguel Suarez
           </h3>
           <p className="text-center text-md">{language === "ES" ? "Desarrollador FrontEnd" : "FrontEnd Developer"}</p>
           <div className="flex space-x-5 pt-6">
